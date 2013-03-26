@@ -1,4 +1,10 @@
 ResTest::Application.routes.draw do
+  resources :trades
+
+
+  resources :days
+
+
   resources :events
 
 

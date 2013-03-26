@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :date, :class => 'date_select' %>
+      <%= f.collection_select(:date, Day.all, :id, :date) %>
     </div>
   </div>
   <div class="control-group">
@@ -14,7 +14,7 @@
   <div class="control-group">
     <%= f.label :trade, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :trade, :class => 'text_field' %>
+      <%= f.collection_select(:trade_id, Trade.all, :id, :trade) %>
     </div>
   </div>
   <div class="control-group">

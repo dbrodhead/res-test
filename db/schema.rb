@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326150455) do
+ActiveRecord::Schema.define(:version => 20130326174129) do
+
+  create_table "days", :force => true do |t|
+    t.date     "date"
+    t.string   "weekday"
+    t.text     "details"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.date     "date"
@@ -20,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20130326150455) do
     t.string   "instructor"
     t.text     "activity"
     t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "trades", :force => true do |t|
+    t.string   "trade"
+    t.integer  "mosid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
