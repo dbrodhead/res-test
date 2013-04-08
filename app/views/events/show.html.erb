@@ -4,12 +4,12 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @event.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:day_id) %>:</strong></dt>
+  <dd><%= @event.day.date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:period) %>:</strong></dt>
   <dd><%= @event.period %></dd>
   <dt><strong><%= model_class.human_attribute_name(:trade) %>:</strong></dt>
-  <dd><%= @event.trade %></dd>
+  <dd><%= @event.trade.trade %></dd>
   <dt><strong><%= model_class.human_attribute_name(:instructor) %>:</strong></dt>
   <dd><%= @event.instructor %></dd>
   <dt><strong><%= model_class.human_attribute_name(:activity) %>:</strong></dt>

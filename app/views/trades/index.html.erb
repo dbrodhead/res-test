@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:trade) %></th>
       <th><%= model_class.human_attribute_name(:mosid) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,8 +14,7 @@
   <tbody>
     <% @trades.each do |trade| %>
       <tr>
-        <td><%= link_to trade.id, trade_path(trade) %></td>
-        <td><%= trade.trade %></td>
+        <td><%= link_to trade.trade, trade_path(trade) %></td>
         <td><%= trade.mosid %></td>
         <td><%=l trade.created_at %></td>
         <td>

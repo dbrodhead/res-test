@@ -2,17 +2,40 @@
 <div class="page-header">
   <h1>Schedule</h1>
 </div>
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Trade
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% @trades = Trade.all %>
+    <% @trades.each do |t| %>
+        <li><%= link_to t.trade, trade_path(t) %></li>
+    <% end  %>
+  </ul>
+</div>
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Date
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% @days = Day.all %>
+    <% @days.each do |t| %>
+        <li><%= link_to t.date, day_path(t) %></li>
+    <% end  %>
+  </ul>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:day_id) %></th>
       <th><%= model_class.human_attribute_name(:period) %></th>
-      <th><%= model_class.human_attribute_name(:trade) %></th>
+      <th><%= model_class.human_attribute_name(:trade_id) %></th>
       <th><%= model_class.human_attribute_name(:instructor) %></th>
       <th><%= model_class.human_attribute_name(:activity) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,13 +43,12 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= link_to event.id, event_path(event) %></td>
-        <td><%= event.date %></td>
+        <td><%= event.day.date %></td>
         <td><%= event.period %></td>
-        <td><%= event.trade %></td>
+        <td><%= event.trade.trade %></td>
         <td><%= event.instructor %></td>
         <td><%= event.activity %></td>
         <td><%= event.location %></td>
-        <td><%=l event.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-mini' %>

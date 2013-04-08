@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:weekday) %></th>
       <th><%= model_class.human_attribute_name(:details) %></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @days.each do |day| %>
       <tr>
-        <td><%= link_to day.id, day_path(day) %></td>
-        <td><%= day.date %></td>
+        <td><%= link_to day.date, day_path(day) %></td>
         <td><%= day.weekday %></td>
         <td><%= day.details %></td>
         <td><%=l day.created_at %></td>

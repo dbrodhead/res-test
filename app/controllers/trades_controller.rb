@@ -1,4 +1,7 @@
 class TradesController < ApplicationController
+  # Authenticate User
+  before_filter :authenticate_user!
+  
   # GET /trades
   # GET /trades.json
   def index

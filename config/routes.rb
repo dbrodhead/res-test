@@ -1,4 +1,13 @@
 ResTest::Application.routes.draw do
+  devise_for :users
+
+  get "event_display/trade"
+
+  get "event_display/day"
+
+  resources :periods
+
+
   resources :trades
 
 

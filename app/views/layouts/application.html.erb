@@ -25,17 +25,30 @@
           <li><%= link_to "Schedule", events_path %></li>
           <li><%= link_to "Days", days_path %></li>
           <li><%= link_to "Trades", trades_path %></li>
+          <li><%= link_to "Periods", periods_path %></li>
+          <li><%= link_to "Events by day", event_display_day_path %></li>
         </ul>
       </div>
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="span9"><%= yield %></div>
-    <div class="span3">
-      <h2>About Us</h2>
-      <p>This is a quick test</p>        
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <h2>News</h2>
+      <p>My plan is to have this area show notifications for upcoming events etc.</p>
+      <div class="alert alert-info">
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>. Not you?
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+         <%= link_to "Sign up", new_user_registration_path %> or
+         <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+      </div>
+    </div>
+    <div class="span9">
+      <%= yield %>
     </div>
   </div>
 </div>

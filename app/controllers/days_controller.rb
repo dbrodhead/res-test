@@ -1,6 +1,9 @@
 class DaysController < ApplicationController
+  # Authenticate User
+  before_filter :authenticate_user!
+
   # GET /days
-  # GET /days.json
+  # GET /days.json  
   def index
     @days = Day.all
 
